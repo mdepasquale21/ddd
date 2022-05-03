@@ -7,13 +7,11 @@
     "node": ">=14"
   },
   "scripts": {
-    "run": "nodemon --exec npm run _run",
-    "_run": "npm run build && npm run start",
-    "build": "tsc -p tsconfig.json",
-    "start": "node src/main/application/application.js",
+    "run": "nodemon --exec npm run start",
+    "start": "ts-node src/main/application/application.ts",
     "clean": "node ./clean.js",
     "unit-test": "nodemon --ext ts --exec npm run _unit-test",
-    "_unit-test": "npm run clean && npm run build && jest || exit 0"
+    "_unit-test": "npm run clean && jest || exit 0"
   },
   "keywords": [
     "Domain-Driven"
