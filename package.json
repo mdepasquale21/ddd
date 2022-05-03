@@ -1,0 +1,35 @@
+{
+  "name": "ddd",
+  "version": "1.0.0",
+  "description": "Domain-Driven Design Boot Camp",
+  "main": "src/main/application/application.js",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "run": "nodemon --exec npm run _run",
+    "_run": "npm run build && npm run start",
+    "build": "tsc -p tsconfig.json",
+    "start": "node src/main/application/application.js",
+    "clean": "node ./clean.js",
+    "unit-test": "nodemon --ext ts --exec npm run _unit-test",
+    "_unit-test": "npm run clean && npm run build && jest || exit 0"
+  },
+  "keywords": [
+    "Domain-Driven"
+  ],
+  "author": "mdepasquale21",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "del": "^6.0.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "nodemonConfig": {
+    "ignore": [],
+    "ext": "ts"
+  }
+}
