@@ -7,6 +7,7 @@ function clean() {
         '*.tsbuildinfo',
         '!node_modules',
         '!clean.js',
+        '!jest.config.js',
         '!spec/support/specs.js',
         'generated-assets/**/*.*'
     ]);

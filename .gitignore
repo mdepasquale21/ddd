@@ -4,3 +4,4 @@ node_modules/
 **/*.js.*
 *.tsbuildinfo
 !clean.js
+!jest.config.js
