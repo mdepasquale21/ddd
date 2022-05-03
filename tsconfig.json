@@ -8,7 +8,11 @@
       "es2017"
     ],
     "target": "es2017",
-    "incremental": true
+    "incremental": true,
+    "typeRoots": [
+      "types",
+      "node_modules/@types"
+    ]
   },
   "compileOnSave": true,
   "include": [
