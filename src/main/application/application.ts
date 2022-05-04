@@ -28,7 +28,6 @@ export class Application {
         console.log('items = ' + cart.printItems());
         console.log('----------------------------------------');
         console.log('\n');
-
     }
 
 }
