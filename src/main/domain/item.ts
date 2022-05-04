@@ -1,12 +1,12 @@
 import { Product } from './product';
-import { v4 as uuidv4 } from 'uuid';
+import { UuidUtil } from '../util/uuid.util';
 
 export class Item {
     private readonly id: string;
 
     constructor(private readonly product: Product,
                 private readonly quantity: number = 1) {
-        this.id = uuidv4();
+        this.id = UuidUtil.getUuidV4();
     }
 
     getId(): string {
