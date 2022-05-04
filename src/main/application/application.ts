@@ -5,9 +5,11 @@ export class Application {
 
     public static main(): void {
         const cart = new Cart();
-        const product = new Product('Apple Pencil');
+        const product1 = new Product('Apple Pencil');
+        const product2 = new Product('Sony Wireless Headphone');
 
-        cart.add(product);
+        cart.add(product1);
+        cart.add(product2);
         const products: Product[] = cart.getProducts();
 
         console.log('Cart = ' + cart);
