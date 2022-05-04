@@ -3,8 +3,10 @@ import { Product } from './product';
 export class Cart {
     private readonly products: Product[] = [];
 
-    public add(product: Product): void {
-        this.products.push(product);
+    public add(product: Product, quantity: number = 1): void {
+        for (let i = 0; i < quantity; i++) {
+            this.products.push(product);
+        }
     }
 
     public getProducts(): Product[] {
