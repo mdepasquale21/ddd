@@ -13,17 +13,22 @@ export class Application {
 
         cart.add(item1);
         cart.add(item2);
-        const items: Item[] = cart.getItems();
 
         console.log('----------------------------------------');
         console.log('Cart = ' + cart);
         console.log('----------------------------------------');
-
+        console.log('items = ' + cart.printItems());
+        console.log('----------------------------------------');
         console.log('\n');
+
         console.log('--------------------------remove product-----------------------------------------------------------');
         cart.remove(item1);
         console.log('Cart = ' + cart);
         console.log('----------------------------------------');
+        console.log('items = ' + cart.printItems());
+        console.log('----------------------------------------');
+        console.log('\n');
+
     }
 
 }

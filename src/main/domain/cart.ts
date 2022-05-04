@@ -15,9 +15,13 @@ export class Cart {
         return this.items;
     }
 
+    printItems(): string[] {
+        return this.items.map(item => item.print());
+    }
+
     public toString(): string {
         return 'Cart{' +
-            'items=' + this.items.map(item => item.print()) +
+            'items=' + this.printItems() +
             '}';
     }
 }

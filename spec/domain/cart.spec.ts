@@ -6,20 +6,18 @@ describe('Cart', () => {
     let cart: Cart;
     let product: Product;
     let item: Item;
+    let actualItems: Item[];
 
     beforeEach(() => {
         cart = new Cart();
         product = new Product('Test product');
+        item = new Item(product, 2);
+
+        cart.add(item);
+        actualItems = cart.getItems();
     });
 
     describe('add', () => {
-        let actualItems: Item[];
-
-        beforeEach(() => {
-            item = new Item(product, 2);
-            cart.add(item);
-            actualItems = cart.getItems();
-        });
 
         it('should add the item to the the cart in the right quantity', () => {
             const expectedItems: Item[] = [item];
@@ -32,13 +30,6 @@ describe('Cart', () => {
     });
 
     describe('remove', () => {
-        let actualItems: Item[];
-
-        beforeEach(() => {
-            item = new Item(product, 2);
-            cart.add(item);
-            actualItems = cart.getItems();
-        });
 
         it('should remove the whole item', () => {
             expect(actualItems.length).toEqual(1);
