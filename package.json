@@ -18,7 +18,9 @@
   ],
   "author": "mdepasquale21",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
   "devDependencies": {
     "@types/jest": "^27.5.0",
     "@types/node": "^17.0.21",

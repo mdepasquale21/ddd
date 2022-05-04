@@ -1,21 +1,23 @@
-import { Product } from './product';
+import { Item } from './item';
 
 export class Cart {
-    private readonly products: Product[] = [];
+    private items: Item[] = [];
 
-    public add(product: Product, quantity: number = 1): void {
-        for (let i = 0; i < quantity; i++) {
-            this.products.push(product);
-        }
+    public add(item: Item): void {
+        this.items.push(item);
     }
 
-    public getProducts(): Product[] {
-        return this.products;
+    public remove(itemToRemove: Item): void {
+        this.items = this.items.filter(item => item.getId() !== itemToRemove.getId());
+    }
+
+    public getItems(): Item[] {
+        return this.items;
     }
 
     public toString(): string {
         return 'Cart{' +
-            'products=' + this.products +
+            'items=' + this.items.map(item => item.print()) +
             '}';
     }
 }

@@ -1,9 +1,11 @@
 import { Cart } from '../../src/main/domain/cart';
 import { Product } from '../../src/main/domain/product';
+import { Item } from '../../src/main/domain/item';
 
 describe('Cart', () => {
     let cart: Cart;
     let product: Product;
+    let item: Item;
 
     beforeEach(() => {
         cart = new Cart();
@@ -11,39 +13,41 @@ describe('Cart', () => {
     });
 
     describe('add', () => {
-        let actualProducts: Product[];
+        let actualItems: Item[];
 
-        describe('when adding only 1 item', () => {
-
-            beforeEach(() => {
-                cart.add(product);
-                actualProducts = cart.getProducts();
-            });
-
-            it('should add the product to the the cart', () => {
-                const expectedProducts: Product[] = [product];
-
-                expect(actualProducts).toEqual(expectedProducts);
-                expect(actualProducts.length).toEqual(1);
-                expect(actualProducts[0].getName()).toEqual('Test product');
-            });
-
+        beforeEach(() => {
+            item = new Item(product, 2);
+            cart.add(item);
+            actualItems = cart.getItems();
         });
 
-        describe('when adding more than 1 unit of the same item', () => {
+        it('should add the item to the the cart in the right quantity', () => {
+            const expectedItems: Item[] = [item];
 
-            beforeEach(() => {
-                cart.add(product, 2);
-                actualProducts = cart.getProducts();
-            });
+            expect(actualItems).toEqual(expectedItems);
+            expect(actualItems[0].getProduct()).toEqual(product);
+            expect(actualItems[0].getQuantity()).toEqual(2);
+        });
 
-            it('should add the right amount of product to the the cart', () => {
-                const expectedProducts: Product[] = [product, product];
+    });
 
-                expect(actualProducts).toEqual(expectedProducts);
-                expect(actualProducts.length).toEqual(2);
-            });
+    describe('remove', () => {
+        let actualItems: Item[];
 
+        beforeEach(() => {
+            item = new Item(product, 2);
+            cart.add(item);
+            actualItems = cart.getItems();
+        });
+
+        it('should remove the whole item', () => {
+            expect(actualItems.length).toEqual(1);
+
+            const expectedItems: Item[] = [];
+            cart.remove(item);
+
+            expect(cart.getItems()).toEqual(expectedItems);
+            expect(cart.getItems().length).toEqual(0);
         });
 
     });
